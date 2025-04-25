@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: AlesiaSherstneva
+      changes:
+        - createTable:
+            tableName: email_data
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_email_user
+                    references: user(id)
+              - column:
+                  name: email
+                  type: VARCHAR(200)
+                  constraints:
+                    nullable: false
+                    unique: true

@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:15:///test_db
+    username: testuser
+    password: testpass
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true

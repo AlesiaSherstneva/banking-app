@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "03eb9592-011a-4789-9815-083faf7a4810",
+		"name": "banking-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24282979"
+	},
+	"item": [
+		{
+			"name": "get-user-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/users/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"1"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0NTU3ODYwMiwiZXhwIjoxNzQ1NjY1MDAyfQ.A5lWwRz_xvSTtTH1IAScFAKkH-hn2V1RZmUoIXekbWo",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Иван",
+							"disabled": true
+						},
+						{
+							"key": "dateOfBirth",
+							"value": "1990-04-15",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "79151234567",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "ivanov@example.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"ivanov@example.com\",\r\n    \"password\":\"ivanov123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "my-page",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0NTU4MDM3OSwiZXhwIjoxNzQ1NjY2Nzc5fQ.mk1Q45L6a0Wrv7yXXDiE8Spme5NOKakhv1Qe9peh_YU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/me",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change-emails",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "change-phones",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0NTU4MjQ4OSwiZXhwIjoxNzQ1NjY4ODg5fQ.dc9rx6FAIvuQLD39O6Q_uAs7Yl61roFsIIFVN2D7OJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"phone\": \"79151234567\",\r\n  \"phoneToChange\": \"79151234123\",\r\n  \"operation\": \"REMOVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/me/phones",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"me",
+						"phones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transfer-money",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0NTU4MjQ4OSwiZXhwIjoxNzQ1NjY4ODg5fQ.dc9rx6FAIvuQLD39O6Q_uAs7Yl61roFsIIFVN2D7OJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"toUserEmail\": \"sidorov@example.com\",\r\n    \"amount\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transfer",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

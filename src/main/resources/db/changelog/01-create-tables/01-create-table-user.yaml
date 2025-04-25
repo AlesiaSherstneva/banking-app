@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: AlesiaSherstneva
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_of_birth
+                  type: DATE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: VARCHAR(500)
+                  constraints:
+                    nullable: false
+                    minLength: 8
+                    maxLength: 500

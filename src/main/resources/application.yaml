@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: banking-app
+  datasource:
+    url: jdbc:postgresql://localhost:5432/banking-app-db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+    default-schema: public
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  cache:
+    type: redis
+    redis:
+      time-to-live: 30m
+      cache-null-values: false
+
+jwt:
+  expiration: 86400000 # 1 day
+  secret:
+    key: myVerySecretKeyLosLessThan32CharactersLong
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui

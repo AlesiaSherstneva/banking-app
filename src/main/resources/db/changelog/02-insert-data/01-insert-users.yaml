@@ -1,0 +1,136 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: AlesiaSherstneva
+      changes:
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: name
+                  value: "Иванов Иван Иванович"
+              - column:
+                  name: date_of_birth
+                  value: "1990-05-15"
+              - column:
+                  name: password
+                  value: "$2a$10$N4oPMWwAzqiReWBdwiEgkOGZFhdVCYuFq4byqvXY4RunnxEIxpaJ2"
+                  # password: ivanov123
+        - insert:
+            tableName: account
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM \"user\" WHERE name = 'Иванов Иван Иванович')"
+              - column:
+                  name: balance
+                  value: 10000.00
+              - column:
+                  name: initial_deposit
+                  value: 10000.00
+        - insert:
+            tableName: email_data
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM \"user\" WHERE name = 'Иванов Иван Иванович')"
+              - column:
+                  name: email
+                  value: "ivanov@example.com"
+        - insert:
+            tableName: phone_data
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM \"user\" WHERE name = 'Иванов Иван Иванович')"
+              - column:
+                  name: phone
+                  value: "79151234567"
+
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: name
+                  value: "Петрова Мария Сергеевна"
+              - column:
+                  name: date_of_birth
+                  value: "1985-08-22"
+              - column:
+                  name: password
+                  value: "$2a$10$Ejz8tsZFHQR99xSLMUhTk.gmnZzyKYkZGctXga4bA1k6LPxxQrxbi"
+                  # password: petrova123
+        - insert:
+            tableName: account
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM \"user\" WHERE name = 'Петрова Мария Сергеевна')"
+              - column:
+                  name: balance
+                  value: 20000.00
+              - column:
+                  name: initial_deposit
+                  value: 20000.00
+        - insert:
+            tableName: email_data
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM \"user\" WHERE name = 'Петрова Мария Сергеевна')"
+              - column:
+                  name: email
+                  value: "petrova@example.com"
+        - insert:
+            tableName: phone_data
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM \"user\" WHERE name = 'Петрова Мария Сергеевна')"
+              - column:
+                  name: phone
+                  value: "79261234567"
+
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: name
+                  value: "Сидоров Алексей Владимирович"
+              - column:
+                  name: date_of_birth
+                  value: "1995-03-10"
+              - column:
+                  name: password
+                  value: "$2a$10$1LUDx7FhczD6Ebqu.VwAWedluVUTly5l5BnPD5.N0oCf7wC7B7Jeq"
+                  # password: sidorov123
+        - insert:
+            tableName: account
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM \"user\" WHERE name = 'Сидоров Алексей Владимирович')"
+              - column:
+                  name: balance
+                  value: 5000.00
+              - column:
+                  name: initial_deposit
+                  value: 5000.00
+        - insert:
+            tableName: email_data
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM \"user\" WHERE name = 'Сидоров Алексей Владимирович')"
+              - column:
+                  name: email
+                  value: "sidorov@example.com"
+        - insert:
+            tableName: phone_data
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM \"user\" WHERE name = 'Сидоров Алексей Владимирович')"
+              - column:
+                  name: phone
+                  value: "79371234567"
