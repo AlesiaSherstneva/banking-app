@@ -33,7 +33,7 @@ public class GlobalControllerAdvice {
                 .collect(Collectors.joining("; "));
         log.warn("Validation error: {}", message);
 
-        return new ResponseEntity<>(prepareResponseBody(message, HttpStatus.NOT_FOUND), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(prepareResponseBody(message, HttpStatus.BAD_REQUEST), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

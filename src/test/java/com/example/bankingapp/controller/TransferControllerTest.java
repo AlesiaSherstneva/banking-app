@@ -74,7 +74,7 @@ class TransferControllerTest extends BaseControllerTest {
                         .content(userJson)
                         .header("Authorization", testToken))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value("amount - сумма должна иметь положительное значение"))
+                .andExpect(jsonPath("$.message").value("amount - Сумма должна иметь положительное значение"))
                 .andExpect(jsonPath("$.status").value(400));
     }
 
